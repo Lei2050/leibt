@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icon">
+    <file alias="new_tree.png">icon/new_tree.png</file>
+    <file alias="new_workspace.png">icon/new_workspace.png</file>
+  </qresource>
+</RCC>

@@ -1,0 +1,21 @@
+
+
+[2022-04-30 21:17:59]  error catched!:
+Traceback (most recent call last):
+  File "F:\workspace\leibt\view\widget_scene.py", line 194, in paintEvent
+    self.tree.paint(painter, self.getConfig())
+  File "F:\workspace\leibt\view\widget_scene.py", line 54, in paint
+    self.root.paint(painter, config)
+  File "F:\workspace\leibt\view\scene_tree_nodes\scene_node.py", line 308, in paint
+    self.onPaint(painter, config)
+  File "F:\workspace\leibt\view\scene_tree_nodes\scene_node.py", line 295, in onPaint
+    self.paintCommentText(painter, config)
+  File "F:\workspace\leibt\view\scene_tree_nodes\scene_node.py", line 244, in paintCommentText
+    text = Controller.GetModelItemData(self.modelPath, self.id).get('comment', '')
+  File "F:\workspace\leibt\controller\controller.py", line 19, in GetModelItemData
+    item = cls.GetModel(path).getItem(itemId)
+  File "F:\workspace\leibt\controller\controller.py", line 12, in GetModel
+    return mws.WorkspaceMgr().getModelByPath(path)
+  File "F:\workspace\leibt\model\workspace.py", line 307, in getModelByPath
+    modelItem = ws.getModelItemByPath(path[1:])
+AttributeError: 'NoneType' object has no attribute 'getModelItemByPath'

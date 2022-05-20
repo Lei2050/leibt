@@ -1,0 +1,41 @@
+{
+    "env": "release",
+    "mainwindow_geometry": [
+        316,
+        158,
+        1934,
+        1161
+    ],
+    "open_tree": "mu/testsubtree",
+    "open_workspaces": {
+        "mu": {
+            "directory": "F:/workspace/leibt_test",
+            "open_trees": {
+                "mu/testsubtree": {
+                    "global_offset": [
+                        141,
+                        114
+                    ],
+                    "scale": 1.1765957446808513
+                }
+            }
+        },
+        "mu2": {
+            "directory": "F:/workspace/leibt_test_2",
+            "open_trees": {}
+        }
+    },
+    "scene_setting": {
+        "SceneBGColor": "#1c5555",
+        "SceneNodeBGColor": "#009500",
+        "SceneNodeCommentFontColor": "#00007f",
+        "SceneNodeFocusColor": "#00ff7f",
+        "SceneNodeFont": "Courier New,10,-1,5,700,0,0,0,0,0,0,0,0,0,0,1,Bold",
+        "SceneNodeFontColor": "#000000",
+        "SceneNodeLineColor": "#ffffff",
+        "SceneNodeOpSignColor": "#260013",
+        "SceneNodeOpSignFocusColor": "#989898",
+        "SceneNodePickedColor": "#ffff00",
+        "TreeViewEditingColor": "#00aa00"
+    }
+}

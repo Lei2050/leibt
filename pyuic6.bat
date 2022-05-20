@@ -1,0 +1,1 @@
+pyuic6 -x test.ui -o test_widget.py

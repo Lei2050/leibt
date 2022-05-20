@@ -1,0 +1,5 @@
+BT_TRUE   = 1
+BT_FALSE  = 0
+BT_OVER   = -1
+BT_WAIT   = 2
+BT_UNKNOW = 3
