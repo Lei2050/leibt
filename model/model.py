@@ -66,7 +66,7 @@ class Model:
     
     def exportFileName(self, exportDirectory):
         f = self.id.replace('/', '_')
-        return f'{exportDirectory}/btpy/{f}.py'
+        return f'{exportDirectory}/{f}.py'
     
     '''
     导出行为树

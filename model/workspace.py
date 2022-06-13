@@ -229,7 +229,7 @@ class Workspace:
     def saveData(self):
         data = {
             'name': self.name,
-            'directory': self.directory,
+            #'directory': self.directory,
             'export_dir': self.exportDirectory,
             'trees': self.root.saveData(),
         }
@@ -250,8 +250,8 @@ class Workspace:
     
     def load(self, data):
         self.name = data['name']
-        self.directory = data['directory']
-        self.exportDirectory = data['export_dir']
+        #self.directory = data['directory']
+        #self.exportDirectory = data['export_dir']
         d = WorkspaceItemDirectory(None)
         d.load(self.directory, [], data['trees'])
         self.root = d
@@ -289,10 +289,14 @@ class Workspace:
         # if os.path.exists(distDir):
         #     shutil.rmtree(distDir)
         # shutil.copytree(srcDir, distDir)
-        distDir = exportDirectory + '/btpy'
+        distDir = ''
+        if not os.path.isabs(exportDirectory):
+            distDir = self.directory + '/' + exportDirectory + '/btpy'
+        else:
+            distDir = exportDirectory + '/btpy'
         if not os.path.exists(distDir):
             os.mkdir(distDir)
-        return self.root.export(exportDirectory)
+        return self.root.export(distDir)
     
     #获取所有行为树，返回这些行为的路径的列表
     def getAllModelPaths(self):
@@ -439,9 +443,7 @@ def EditWorkspace(oldData, newData):
             workspace.saveWorkspaceFile()
             # workspace.save()
         except Exception as e:
-            # TODO 这里可以向view层发一个提示
-            # return gg.ErrorCode.getErrorMsg(13, name=workspace.name) + '\n' + str(e)
-            pass
+            return gg.ErrorCode.getErrorMsg(22) + '\n' + str(e)
     workspace.exportDirectory = newData['export_directory']
     return None
 
@@ -555,10 +557,11 @@ def OpenWorkspace(filepath):
         return gg.ErrorCode.getErrorMsg(16, path=filepath) + str(e)
     
     wsName = data.get('name', '')
-    directory = data.get('directory', '')
+    #directory = data.get('directory', '')
     prePath, filename = os.path.split(filepath)
-    if not os.path.samefile(prePath, directory):
-        return gg.ErrorCode.getErrorMsg(20, path=filepath) + ', 目录配置有问题'
+    directory = prePath
+    #if not os.path.samefile(prePath, directory):
+    #    return gg.ErrorCode.getErrorMsg(20, path=filepath) + ', 目录配置有问题'
     strs = filename.split('.')
     if wsName != strs[0]:
         return gg.ErrorCode.getErrorMsg(20, path=filepath) + ', 工作区名有问题'
